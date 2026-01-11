@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donasi Kita Berbagi | Platform Kemanusiaan Palestina</title>
+    <meta name="description" content="Salurkan bantuan kemanusiaan Anda untuk Palestina melalui Donasi Kita Berbagi. Transparan, amanah, dan tepat sasaran.">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://donasikitaberbagi.com/"> 
+    <meta property="og:title" content="Donasi Kita Berbagi | Palestina">
+    <meta property="og:description" content="Bantu saudara kita di Palestina. Transparan, amanah, dan laporan rutin.">
+    <meta property="og:image" content="assets/img/nama-foto-unggulan-anda.jpg">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-red: #ee2a35;
+            --primary-green: #007a3d;
+            --dark-elegant: #2d2d2d;
+            --light-bg: #fcfcfc;
+        }
+
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--light-bg); 
+            color: var(--dark-elegant); 
+            scroll-behavior: smooth; 
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* --- NAVBAR ELEGANT --- */
+        .navbar { 
+            background: rgba(255, 255, 255, 0.98); 
+            backdrop-filter: blur(15px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.03); 
+            padding: 12px 0; 
+        }
+        
+        .navbar-brand img {
+            height: 60px; width: 60px; 
+            object-fit: cover;
+            border-radius: 50%;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.05));
+            transition: 0.3s;
+        }
+
+        .brand-title { 
+            font-weight: 700; 
+            font-size: 1.15rem; 
+            color: var(--dark-elegant); 
+            display: block; 
+            line-height: 1.1; 
+            letter-spacing: 0.5px;
+        }
+        .brand-subtitle { 
+            font-weight: 500; 
+            font-size: 0.7rem; 
+            color: var(--primary-green); 
+            text-transform: uppercase; 
+            letter-spacing: 1.5px;
+        }
+
+        .nav-link { 
+            font-weight: 500 !important; 
+            color: var(--dark-elegant) !important; 
+            font-size: 0.82rem; 
+            margin-left: 15px;
+            letter-spacing: 0.8px;
+            transition: 0.3s; 
+            position: relative;
+            opacity: 0.8;
+        }
+        
+        .nav-link:hover, .nav-link.active { 
+            color: var(--primary-red) !important; 
+            opacity: 1;
+        }
+
+        .nav-link::after {
+            content: '';
+            width: 0;
+            height: 2px;
+            background: var(--primary-red);
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            transition: 0.3s;
+        }
+        .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+
+        /* --- HERO SECTION --- */
+        .hero { padding: 120px 0 160px; background: linear-gradient(135deg, #fff 0%, #fff9f9 100%); overflow: hidden; }
+        .hero-img { border-radius: 30px; box-shadow: 0 15px 45px rgba(0,0,0,0.07); }
+        .display-4 { font-weight: 700; letter-spacing: -1px; }
+
+        /* --- SECTION STYLING --- */
+        section { padding: 100px 0; }
+        .section-tag { 
+            color: var(--primary-red); 
+            font-weight: 600; 
+            text-transform: uppercase; 
+            font-size: 0.75rem; 
+            letter-spacing: 3px; 
+            display: block; 
+            margin-bottom: 15px; 
+        }
+        .section-title { font-weight: 700; font-size: 2.2rem; margin-bottom: 30px; color: var(--dark-elegant); }
+        
+        /* --- STAT BOX --- */
+        .stat-box { 
+            background: #1e1e1e; 
+            color: white; 
+            padding: 50px 0; 
+            border-radius: 24px; 
+            margin-top: -100px; 
+            position: relative; 
+            z-index: 5; 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        /* --- CARDS & GALLERY --- */
+        .program-card { border: none; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.04); transition: 0.4s; height: 100%; background: #fff; }
+        .program-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
+        .program-img { height: 220px; object-fit: cover; }
+        
+        .galeri-img { height: 250px; width: 100%; object-fit: cover; border-radius: 16px; cursor: pointer; transition: 0.4s; }
+        .galeri-img:hover { filter: brightness(0.8); transform: scale(1.02); }
+
+        /* --- BUTTONS --- */
+        .btn-primary { background: var(--primary-red); border: none; padding: 14px 32px; border-radius: 10px; font-weight: 600; font-size: 0.95rem; transition: 0.3s; }
+        .btn-primary:hover { background: #d41f29; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(238, 42, 53, 0.3); }
+        .btn-outline-dark { border-width: 2px; font-weight: 600; border-radius: 10px; padding: 14px 32px; font-size: 0.95rem; }
+
+        /* --- FITUR TAMBAHAN --- */
+        .float-wa {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .float-wa:hover {
+            background-color: #128c7e;
+            color: #fff;
+            transform: scale(1.1);
+        }
+        .modal-content { border-radius: 20px; border: none; }
+
+        .btn-nominal {
+            border: 2px solid #eee;
+            border-radius: 12px;
+            padding: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            background-color: #fff;
+            font-weight: 600;
+        }
+        .btn-nominal:hover { border-color: var(--primary-red); background: #fff5f5; }
+        
+        .btn-nominal.active {
+            background-color: var(--primary-red) !important;
+            border-color: var(--primary-red) !important;
+            color: white !important;
+            box-shadow: 0 4px 12px rgba(238, 42, 53, 0.2);
+        }
+
+        #custom_nominal_wrapper { display: none; }
+        
+        /* Perbaikan: Menambahkan titik (.) pada selector class */
+        .btn-nominal {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        #custom_nominal_wrapper {
+            animation: fadeIn 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        #testimoni .card {
+            transition: 0.3s;
+            border-bottom: 3px solid transparent !important;
+        }
+
+        #testimoni .card:hover {
+            transform: translateY(-5px);
+            border-bottom: 3px solid var(--primary-red) !important;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08) !important;
+        }
+
+        #testimoni p {
+            font-style: italic;
+            line-height: 1.6;
+        }
+
+        /* --- FAQ STYLING --- */
+        .accordion-item {
+            border: none;
+            border-bottom: 1px solid #f1f1f1 !important;
+        }
+
+        .accordion-button:not(.collapsed) {
+            background-color: #fff5f5;
+            color: var(--primary-red);
+            box-shadow: none;
+        }
+
+        .accordion-button:focus {
+            box-shadow: none;
+            border-color: rgba(0,0,0,.125);
+        }
+
+        .accordion-button::after {
+            background-size: 1rem;
+        }
+
+        .accordion-body {
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target="#navbarNav">
+
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#beranda">
+                <img src="assets/img/logo.png" alt="Logo">
+                <div class="ms-3 d-none d-sm-block">
+                    <span class="brand-title">DONASI KITA</span>
+                    <span class="brand-subtitle">Berbagi Sesama</span>
+                </div>
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto text-uppercase">
+                    <li class="nav-item"><a class="nav-link active" href="#beranda">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#profil">Profil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#program">Program</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#galeri">Galeri</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#ereport">E-report</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#kontak">Kontak</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#testimoni">Testimoni</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="beranda" class="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <span class="section-tag">Solidaritas Tanpa Batas</span>
+                    <h1 class="display-4 mb-3">Satu Tangan Kita,<br><span class="text-danger">Sejuta Senyum Palestina.</span></h1>
+                    <p class="lead mb-4 text-muted" style="font-weight: 400; font-size: 1.1rem;">Bergabunglah bersama ribuan donatur untuk menyediakan bantuan pangan, medis, dan harapan bagi saudara kita di Gaza.</p>
+                    <div class="d-flex gap-3">
+                        <button type="button" class="btn btn-primary shadow-sm" data-bs-toggle="modal" data-bs-target="#modalDonasi">Donasi Sekarang</button>
+                        <a href="#profil" class="btn btn-outline-dark px-4">Visi Kami</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 mt-5 mt-lg-0 text-center" data-aos="zoom-in">
+                    <img src="assets/img/hero.jpg" class="img-fluid hero-img" alt="Aksi Kemanusiaan">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="ereport" class="container pt-0">
+        <div class="stat-box" data-aos="fade-up">
+            <div class="row text-center px-4">
+                <div class="col-md-4 border-end border-secondary border-opacity-25 mb-4 mb-md-0">
+                    <h2 class="fw-bold text-danger">Rp 1.2M+</h2>
+                    <p class="mb-0 text-white-50 small text-uppercase fw-bold" style="letter-spacing: 1px;">Dana Tersalurkan</p>
+                </div>
+                <div class="col-md-4 border-end border-secondary border-opacity-25 mb-4 mb-md-0">
+                    <h2 class="fw-bold text-success">5,432</h2>
+                    <p class="mb-0 text-white-50 small text-uppercase fw-bold" style="letter-spacing: 1px;">Donatur Terdaftar</p>
+                </div>
+                <div class="col-md-4">
+                    <h2 class="fw-bold text-warning">100%</h2>
+                    <p class="mb-0 text-white-50 small text-uppercase fw-bold" style="letter-spacing: 1px;">Amanah & Transparan</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-5 p-4 bg-white rounded-4 shadow-sm" data-aos="fade-up" data-aos-delay="200">
+            <h4 class="fw-bold mb-4 text-center"><i class="fas fa-file-invoice-dollar text-danger me-2"></i> Laporan Penyaluran Dana</h4>
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Tanggal</th>
+                            <th>Program Bantuan</th>
+                            <th>Lokasi</th>
+                            <th>Nominal</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>10/01/2026</td>
+                            <td>1000 Paket Gandum</td>
+                            <td>Gaza Utara</td>
+                            <td>Rp 45.000.000</td>
+                            <td><span class="badge bg-success">Tersalurkan</span></td>
+                        </tr>
+                        <tr>
+                            <td>05/01/2026</td>
+                            <td>Obat-obatan Darurat</td>
+                            <td>RS Al-Shifa</td>
+                            <td>Rp 30.000.000</td>
+                            <td><span class="badge bg-success">Tersalurkan</span></td>
+                        </tr>
+                        <tr>
+                            <td>01/01/2026</td>
+                            <td>Bantuan Air Bersih</td>
+                            <td>Rafah</td>
+                            <td>Rp 15.000.000</td>
+                            <td><span class="badge bg-warning text-dark">Proses</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="text-center mt-3">
+                <a href="#" class="btn btn-link text-decoration-none text-danger fw-bold small">Lihat Semua Laporan (PDF)</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="profil">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <img src="https://images.unsplash.com/photo-1547841243-eacb14453cd9?auto=format&fit=crop&w=800" class="img-fluid rounded-4 shadow-sm" alt="Tentang Kami">
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <span class="section-tag">Siapa Kami</span>
+                    <h2 class="section-title">Jembatan Kebaikan<br>Tanpa Batas Geografis</h2>
+                    <p class="text-muted mb-4"><strong>Donasi Kita Berbagi</strong> adalah lembaga kemanusiaan independen yang berfokus pada pemulihan krisis di Palestina melalui jalur bantuan yang aman dan cepat.</p>
+                    <div class="row g-4">
+                        <div class="col-sm-6">
+                            <h6 class="fw-bold"><i class="fas fa-check-circle text-success me-2"></i> Misi Kami</h6>
+                            <p class="small text-muted">Akses bantuan medis dan pangan darurat di titik konflik tersulit.</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <h6 class="fw-bold"><i class="fas fa-check-circle text-success me-2"></i> Nilai Kami</h6>
+                            <p class="small text-muted">Laporan berkala dan transparan bagi setiap rupiah yang Anda berikan.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="program" class="bg-light">
+        <div class="container text-center">
+            <span class="section-tag">Program Utama</span>
+            <h2 class="section-title">Pilih Kebaikan Anda</h2>
+            <div class="row g-4 text-start mt-2">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card program-card">
+                        <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=500" class="card-img-top program-img" alt="Pangan">
+                        <div class="card-body p-4">
+                            <h5 class="fw-bold mb-3">Paket Pangan Gaza</h5>
+                            <p class="text-muted small">Suplai gandum, kurma, dan air bersih untuk pengungsi di tenda darurat.</p>
+                            <button class="btn btn-outline-danger btn-sm w-100 fw-bold py-2 mt-2" data-bs-toggle="modal" data-bs-target="#modalDonasi">Donasi Pangan</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card program-card">
+                        <img src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=500" class="card-img-top program-img" alt="Medis">
+                        <div class="card-body p-4">
+                            <h5 class="fw-bold mb-3">Bantuan Alat Medis</h5>
+                            <p class="text-muted small">Penyediaan obat-obatan kritis dan bahan bakar untuk rumah sakit Gaza.</p>
+                            <button class="btn btn-outline-danger btn-sm w-100 fw-bold py-2 mt-2" data-bs-toggle="modal" data-bs-target="#modalDonasi">Donasi Medis</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card program-card">
+                        <img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&w=500" class="card-img-top program-img" alt="Yatim">
+                        <div class="card-body p-4">
+                            <h5 class="fw-bold mb-3">Cinta Anak Yatim</h5>
+                            <p class="text-muted small">Beasiswa pendidikan dan biaya hidup bagi anak-anak yang kehilangan orang tua.</p>
+                            <button class="btn btn-outline-danger btn-sm w-100 fw-bold py-2 mt-2" data-bs-toggle="modal" data-bs-target="#modalDonasi">Santuni Yatim</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="galeri">
+        <div class="container text-center">
+            <span class="section-tag">Dokumentasi</span>
+            <h2 class="section-title">Jejak Nyata Kebaikan</h2>
+            <div class="row g-3">
+            <div class="col-md-4 col-6" data-aos="zoom-in" data-aos-delay="100"><img src="assets/img/logo.png" class="galeri-img" alt="Dokumentasi Penyaluran">
+</div>
+                <div class="col-md-4 col-6" data-aos="zoom-in" data-aos-delay="200"><img src="https://images.unsplash.com/photo-1594708767771-a7502209ff51?auto=format&fit=crop&w=400" class="galeri-img" alt="Galeri 2"></div>
+                <div class="col-md-4 col-6" data-aos="zoom-in" data-aos-delay="300"><img src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?auto=format&fit=crop&w=400" class="galeri-img" alt="Galeri 3"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimoni" class="bg-white">
+        <div class="container text-center">
+            <span class="section-tag">Testimoni Donatur</span>
+            <h2 class="section-title">Apa Kata Mereka?</h2>
+            
+            <div class="row g-4 mt-2">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card border-0 shadow-sm p-4 rounded-4 h-100">
+                        <div class="text-warning mb-3">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="text-muted italic small mb-4">"Alhamdulillah, proses donasinya sangat mudah dan transparan. Laporannya rutin dikirim via WhatsApp. Semoga menjadi berkah untuk kita semua."</p>
+                        <div class="d-flex align-items-center justify-content-center">
+                            <div class="ms-0">
+                                <h6 class="fw-bold mb-0">H. Ahmad Fauzi</h6>
+                                <small class="text-muted">Donatur Tetap</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card border-0 shadow-sm p-4 rounded-4 h-100">
+                        <div class="text-warning mb-3">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="text-muted italic small mb-4">"Senang bisa membantu saudara di Palestina melalui platform ini. Sangat amanah dan dokumentasi penyalurannya sangat jelas terlihat di galeri."</p>
+                        <div class="d-flex align-items-center justify-content-center">
+                            <div class="ms-0">
+                                <h6 class="fw-bold mb-0">Siti Aminah</h6>
+                                <small class="text-muted">Donatur Umum</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card border-0 shadow-sm p-4 rounded-4 h-100">
+                        <div class="text-warning mb-3">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="text-muted italic small mb-4">"Platform yang sangat memudahkan bagi saya yang ingin berbagi tapi sibuk. Respon admin di WhatsApp juga sangat cepat dan ramah."</p>
+                        <div class="d-flex align-items-center justify-content-center">
+                            <div class="ms-0">
+                                <h6 class="fw-bold mb-0">Budi Santoso</h6>
+                                <small class="text-muted">Pengusaha</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="faq" class="bg-light">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <span class="section-tag">Tanya Jawab</span>
+                <h2 class="section-title">Pertanyaan Umum</h2>
+            </div>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200">
+                    <div class="accordion accordion-flush shadow-sm rounded-4 overflow-hidden" id="accordionDonasi">
+                        
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                                    Bagaimana cara konfirmasi setelah transfer?
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionDonasi">
+                                <div class="accordion-body text-muted">
+                                    Setelah Anda menekan tombol <strong>"Lanjutkan Donasi"</strong> di formulir, Anda akan diarahkan ke WhatsApp kami. Cukup kirimkan pesan otomatis tersebut beserta foto bukti transfer Anda agar tim kami segera melakukan verifikasi.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                                    Apakah donasi saya amanah dan transparan?
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionDonasi">
+                                <div class="accordion-body text-muted">
+                                    Sangat amanah. Kami menyediakan menu <strong>E-Report</strong> yang bisa Anda akses kapan saja untuk melihat rincian dana yang masuk dan laporan penyaluran yang telah kami laksanakan di lapangan.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+                                    Apakah bisa berdonasi atas nama orang lain (Almarhum)?
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionDonasi">
+                                <div class="accordion-body text-muted">
+                                    Tentu bisa. Anda tinggal menuliskan nama Almarhum/Almarhumah di kolom nama donatur dan menuliskan doa atau niat khusus di kolom <strong>"Doa atau Harapan"</strong>.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour">
+                                    Berapa nominal minimal donasi?
+                                </button>
+                            </h2>
+                            <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionDonasi">
+                                <div class="accordion-body text-muted">
+                                    Tidak ada batas minimal. Setiap rupiah yang Anda berikan sangat berarti untuk saudara kita di Palestina. Anda bisa memilih nominal mulai dari Rp 10.000 atau jumlah lainnya sesuai kemampuan.
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="kontak" class="bg-light">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-md-5" data-aos="fade-right">
+                    <h2 class="section-title">Hubungi Tim Kami</h2>
+                    <p class="text-muted">Punya pertanyaan atau ingin berkolaborasi? Kami siap mendengar dari Anda.</p>
+                    <div class="mt-4">
+                        <div class="d-flex mb-4 align-items-center">
+                            <div class="bg-white shadow-sm p-3 rounded-circle me-3 text-success"><i class="fas fa-phone-alt"></i></div>
+                            <div>
+                                <small class="d-block text-muted">WhatsApp Hotline</small>
+                                <span class="fw-bold">+62 851 4793 7719</span>
+                            </div>
+                        </div>
+                        <div class="d-flex mb-4 align-items-center">
+                            <div class="bg-white shadow-sm p-3 rounded-circle me-3 text-danger"><i class="fas fa-envelope"></i></div>
+                            <div>
+                                <small class="d-block text-muted">Email Support</small>
+                                <span class="fw-bold">info@donasikita.org</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-7" data-aos="fade-left">
+                    <form class="bg-white p-4 p-lg-5 rounded-4 shadow-sm">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <input type="text" id="contact_name" class="form-control bg-light border-0 p-3" placeholder="Nama Lengkap" required>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="email" id="contact_email" class="form-control bg-light border-0 p-3" placeholder="Alamat Email" required>
+                            </div>
+                            <div class="col-12">
+                                <textarea id="contact_message" class="form-control bg-light border-0 p-3" rows="4" placeholder="Apa yang ingin Anda sampaikan?" required></textarea>
+                            </div>
+                            <div class="col-12">
+                                <button type="button" onclick="sendContactToWA()" class="btn btn-primary w-100 p-3 shadow-sm">Kirim Pesan</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-5 bg-white border-top text-center">
+        <div class="container">
+            <div class="mb-4">
+                <a href="#" class="text-dark mx-2"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-dark mx-2"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="text-dark mx-2"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p class="text-muted small mb-0">&copy; 2026 <strong>Donasi Kita Berbagi</strong>. Bersama untuk Palestina.</p>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/6285147937719" class="float-wa" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <div class="modal fade" id="modalDonasi" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content p-3">
+                <div class="modal-header border-0">
+                    <h5 class="fw-bold">Donasi Cepat</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="text-center mb-4">
+                        <span class="badge text-danger mb-2" style="font-size: 0.7rem; background: #ffe5e5; padding: 5px 15px; border-radius: 20px;">Langkah Kebaikan</span>
+                        <h5 class="fw-bold">Formulir Donasi</h5>
+                    </div>
+
+                    <label class="form-label small fw-bold text-muted mb-3 text-uppercase" style="letter-spacing: 1px;">Pilih Nominal</label>
+                    <div class="row g-2 mb-3">
+                        <div class="col-6"><div class="btn-nominal text-center py-3" onclick="setNominal('Rp 50.000', this)">Rp 50.000</div></div>
+                        <div class="col-6"><div class="btn-nominal text-center py-3" onclick="setNominal('Rp 100.000', this)">Rp 100.000</div></div>
+                        <div class="col-6"><div class="btn-nominal text-center py-3" onclick="setNominal('Rp 250.000', this)">Rp 250.000</div></div>
+                        <div class="col-6"><div class="btn-nominal text-center py-3" onclick="setNominal('Lainnya', this)">Lainnya</div></div>
+                    </div>
+
+                    <div id="custom_nominal_wrapper" class="mb-4">
+                        <div class="input-group">
+                            <span class="input-group-text bg-light border-0 text-muted">Rp</span>
+                            <input type="text" id="custom_nominal" class="form-control bg-light border-0 p-3" placeholder="Contoh: 50.000">
+                        </div>
+                    </div>
+
+                    <form id="donationForm">
+                        <div class="mb-3">
+                            <div class="input-group mb-2">
+                                <span class="input-group-text bg-light border-0"><i class="fas fa-user text-muted"></i></span>
+                                <input type="text" id="donatur_name" class="form-control bg-light border-0 p-3" placeholder="Nama Lengkap" style="font-size: 0.9rem;" required>
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light border-0"><i class="fab fa-whatsapp text-muted"></i></span>
+                                <input type="tel" id="donatur_wa" class="form-control bg-light border-0 p-3" placeholder="Nomor WhatsApp (Aktif)" style="font-size: 0.9rem;" required>
+                            </div>
+                        </div>
+
+                        <div class="form-check form-switch mb-3">
+                            <input class="form-check-input" type="checkbox" id="anonimCheck">
+                            <label class="form-check-label small text-muted" for="anonimCheck">Sembunyikan nama (Hamba Allah)</label>
+                        </div>
+
+                        <div class="mb-4">
+                            <textarea id="donatur_hope" class="form-control bg-light border-0 p-3" rows="2" placeholder="Tulis doa atau harapan Anda..." style="font-size: 0.9rem; border-radius: 12px;"></textarea>
+                        </div>
+
+                        <button type="button" onclick="sendDonationToWA()" class="btn btn-primary w-100 p-3 fw-bold shadow-sm mb-4" style="border-radius: 12px; letter-spacing: 0.5px;">
+                            <i class="fas fa-heart me-2"></i> Lanjutkan Donasi
+                        </button>
+
+                        <div class="rekening-box p-4 rounded-4" style="background: #f8f9fa; border: 1px dashed #dee2e6;">
+                            <div class="text-center mb-3">
+                                <span class="badge bg-white text-dark border px-3 py-2 rounded-pill shadow-sm small" style="font-weight: 600;">
+                                    <i class="fas fa-university text-danger me-2"></i> Rekening Resmi (Klik untuk Salin)
+                                </span>
+                            </div>
+                            
+                            <div class="d-flex align-items-center justify-content-between mb-3 p-2 rounded-3" 
+                                 style="cursor: pointer; background: rgba(255,255,255,0.7); transition: 0.3s;" 
+                                 onclick="copyToClipboard('7112223334', 'BSI')">
+                                <div class="d-flex align-items-center">
+                                    <div class="bg-white p-2 rounded-3 shadow-sm me-3" style="width: 45px; height: 30px; display: flex; align-items: center; justify-content: center; font-size: 0.6rem; font-weight: 800; color: #005aab;">BSI</div>
+                                    <span class="fw-semibold small">Bank Syariah Indonesia</span>
+                                </div>
+                                <div class="text-end">
+                                    <span class="text-danger fw-bold d-block">711 222 333 4</span>
+                                    <small class="text-muted" style="font-size: 0.6rem;"><i class="fas fa-copy me-1"></i>Salin</small>
+                                </div>
+                            </div>
+
+                            <div class="d-flex align-items-center justify-content-between mb-3 p-2 rounded-3" 
+                                 style="cursor: pointer; background: rgba(255,255,255,0.7); transition: 0.3s;" 
+                                 onclick="copyToClipboard('123000456789', 'Mandiri')">
+                                <div class="d-flex align-items-center">
+                                    <div class="bg-white p-2 rounded-3 shadow-sm me-3" style="width: 45px; height: 30px; display: flex; align-items: center; justify-content: center; font-size: 0.5rem; font-weight: 800; color: #003d79;">MANDIRI</div>
+                                    <span class="fw-semibold small">Bank Mandiri</span>
+                                </div>
+                                <div class="text-end">
+                                    <span class="text-danger fw-bold d-block">123 000 456 789</span>
+                                    <small class="text-muted" style="font-size: 0.6rem;"><i class="fas fa-copy me-1"></i>Salin</small>
+                                </div>
+                            </div>
+
+                            <div class="text-center mt-3 pt-2 border-top">
+                                <p class="mb-0 text-muted" style="font-size: 0.75rem;">Atas Nama:</p>
+                                <p class="fw-bold small mb-0 text-dark">Yayasan Donasi Kita Berbagi</p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        // Inisialisasi AOS (Animation On Scroll)
+        AOS.init({ duration: 1000, once: true });
+
+        let selectedNominal = "";
+
+        // Script untuk format titik otomatis
+        const customInput = document.getElementById('custom_nominal');
+        customInput.addEventListener('keyup', function(e) {
+            let value = this.value.replace(/[^0-9]/g, ''); // Hanya ambil angka
+            if (value) {
+                this.value = new Intl.NumberFormat('id-ID').format(value);
+            }
+        });
+
+        // Fungsi Pilih Nominal
+        function setNominal(val, element) {
+            selectedNominal = val;
+            document.querySelectorAll('.btn-nominal').forEach(el => el.classList.remove('active'));
+            element.classList.add('active');
+
+            // Kontrol Input Kustom
+            const wrapper = document.getElementById('custom_nominal_wrapper');
+            if(val === 'Lainnya') {
+                wrapper.style.display = 'block';
+            } else {
+                wrapper.style.display = 'none';
+            }
+        }
+
+        // Fungsi Salin Rekening
+        function copyToClipboard(number, bankName) {
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(number).then(() => {
+                    alert("✅ No. Rekening " + bankName + " berhasil disalin!");
+                });
+            } else {
+                const el = document.createElement('textarea');
+                el.value = number;
+                document.body.appendChild(el);
+                el.select();
+                document.execCommand('copy');
+                document.body.removeChild(el);
+                alert("✅ No. Rekening " + bankName + " berhasil disalin!");
+            }
+        }
+
+        // Fungsi WA Kontak
+        function sendContactToWA() {
+            const name = document.getElementById('contact_name').value;
+            const email = document.getElementById('contact_email').value;
+            const message = document.getElementById('contact_message').value;
+            if (!name || !email || !message) { alert("Isi semua kolom!"); return; }
+            const text = `Halo Admin Donasi Kita,%0A%0ASaya ingin bertanya:%0A%0A*Nama:* ${name}%0A*Email:* ${email}%0A*Pesan:* ${message}`;
+            window.open(`https://wa.me/6285147937719?text=${text}`, '_blank');
+        }
+
+        // Fungsi WA Donasi
+        function sendDonationToWA() {
+            let name = document.getElementById('donatur_name').value;
+            const wa = document.getElementById('donatur_wa').value;
+            const hope = document.getElementById('donatur_hope').value;
+            const isAnonim = document.getElementById('anonimCheck').checked;
+            
+            let finalNominal = selectedNominal;
+
+          
+            // Jika pilih nominal lainnya
+            if(selectedNominal === 'Lainnya') {
+                // Ambil nilai dan hapus titiknya agar kembali jadi angka murni
+                const rawValue = document.getElementById('custom_nominal').value.replace(/\./g, ''); 
+                if(!rawValue) { alert("Masukkan nominal!"); return; }
+                finalNominal = "Rp " + new Intl.NumberFormat('id-ID').format(rawValue);
+            }
+            
+            if (!selectedNominal) { alert("Pilih nominal!"); return; }
+            if (isAnonim) name = "Hamba Allah (Anonim)";
+            if (!name || !wa) { alert("Isi nama dan WA!"); return; }
+
+            const text = `Halo Admin Donasi Kita,%0A%0ASaya ingin berdonasi:%0A%0A*Nama:* ${name}%0A*Nominal:* ${finalNominal}%0A*WhatsApp:* ${wa}%0A*Doa:* ${hope || '-'}`;
+            window.open(`https://wa.me/6285147937719?text=${text}`, '_blank');
+        }
+    </script>
+</body>
+</html>
